@@ -9,8 +9,8 @@ StreamVerse provides a complete backend infrastructure for handling videos, user
 # 📖 Table of Contents
 
 - [Overview](#-overview)
-- [Features](#-features)
 - [Tech Stack](#-tech-stack)
+- [Features](#-features)
 - [Architecture](#-architecture)
 - [Project Structure](#-project-structure)
 - [Installation](#-installation)
@@ -21,8 +21,6 @@ StreamVerse provides a complete backend infrastructure for handling videos, user
 - [Authentication](#-authentication)
 - [Error Handling](#-error-handling)
 - [Future Improvements](#-future-improvements)
-- [Contributing](#-contributing)
-- [License](#-license)
 
 ---
 
@@ -31,6 +29,7 @@ StreamVerse provides a complete backend infrastructure for handling videos, user
 StreamVerse is a feature-rich backend system designed for media-sharing and social engagement platforms.
 
 The application supports:
+
 - Video uploads and management
 - User authentication and profiles
 - Likes and comments
@@ -43,9 +42,49 @@ The project follows a modular MVC architecture with scalable folder organization
 
 ---
 
+# 🛠️ Tech Stack
+
+## Backend
+
+- Node.js
+- Express.js
+
+## Database
+
+- MongoDB
+- Mongoose
+
+## Authentication & Security
+
+- JWT (jsonwebtoken)
+- bcrypt
+
+## Media Uploads
+
+- Cloudinary
+- Multer
+
+## Middleware & Utilities
+
+- CORS
+- cookie-parser
+- dotenv
+
+## Development Tools
+
+- Nodemon
+- Prettier
+
+## Pagination
+
+- mongoose-aggregate-paginate-v2
+
+---
+
 # ✨ Features
 
 ## 👤 User Management
+
 - User registration & login
 - JWT Authentication (Access & Refresh Tokens)
 - Secure password hashing with bcrypt
@@ -54,6 +93,7 @@ The project follows a modular MVC architecture with scalable folder organization
 - Watch history tracking
 
 ## 🎥 Video Management
+
 - Upload videos with thumbnails
 - Publish/unpublish videos
 - Video metadata management
@@ -61,6 +101,7 @@ The project follows a modular MVC architecture with scalable folder organization
 - View count tracking
 
 ## 💬 Social Features
+
 - Like videos, comments, and tweets
 - Comment on videos
 - Create and manage tweets
@@ -68,46 +109,16 @@ The project follows a modular MVC architecture with scalable folder organization
 - Playlist management
 
 ## 📊 Dashboard Features
+
 - Channel statistics
 - Video analytics
 - Subscriber information
 
 ## ☁️ Media Handling
+
 - Cloudinary integration
 - Multer file uploads
 - Image & video upload support
-
----
-
-# 🛠️ Tech Stack
-
-## Backend
-- Node.js
-- Express.js
-
-## Database
-- MongoDB
-- Mongoose
-
-## Authentication & Security
-- JWT (jsonwebtoken)
-- bcrypt
-
-## Media Uploads
-- Cloudinary
-- Multer
-
-## Middleware & Utilities
-- CORS
-- cookie-parser
-- dotenv
-
-## Development Tools
-- Nodemon
-- Prettier
-
-## Pagination
-- mongoose-aggregate-paginate-v2
 
 ---
 
@@ -282,104 +293,104 @@ http://localhost:8000/api/v1
 
 # ❤️ Health Check
 
-| Method | Endpoint | Description |
-|---|---|---|
-| GET | `/healthcheck` | Server health status |
+| Method | Endpoint       | Description          |
+| ------ | -------------- | -------------------- |
+| GET    | `/healthcheck` | Server health status |
 
 ---
 
 # 👤 User Routes
 
-| Method | Endpoint | Description |
-|---|---|---|
-| POST | `/users/register` | Register user |
-| POST | `/users/login` | Login user |
-| POST | `/users/logout` | Logout user |
-| POST | `/users/refresh-token` | Refresh access token |
-| GET | `/users/current-user` | Get current user |
-| PATCH | `/users/profile` | Update profile |
-| PATCH | `/users/avatar` | Update avatar |
-| PATCH | `/users/cover-image` | Update cover image |
-| POST | `/users/change-password` | Change password |
-| GET | `/users/:userId` | Get user profile |
-| GET | `/users/:userId/watch-history` | Get watch history |
+| Method | Endpoint                       | Description          |
+| ------ | ------------------------------ | -------------------- |
+| POST   | `/users/register`              | Register user        |
+| POST   | `/users/login`                 | Login user           |
+| POST   | `/users/logout`                | Logout user          |
+| POST   | `/users/refresh-token`         | Refresh access token |
+| GET    | `/users/current-user`          | Get current user     |
+| PATCH  | `/users/profile`               | Update profile       |
+| PATCH  | `/users/avatar`                | Update avatar        |
+| PATCH  | `/users/cover-image`           | Update cover image   |
+| POST   | `/users/change-password`       | Change password      |
+| GET    | `/users/:userId`               | Get user profile     |
+| GET    | `/users/:userId/watch-history` | Get watch history    |
 
 ---
 
 # 🎥 Video Routes
 
-| Method | Endpoint | Description |
-|---|---|---|
-| GET | `/videos` | Get all videos |
-| POST | `/videos/publish` | Publish video |
-| GET | `/videos/:videoId` | Get video |
-| PATCH | `/videos/:videoId` | Update video |
-| DELETE | `/videos/:videoId` | Delete video |
-| PATCH | `/videos/:videoId/toggle-publish` | Toggle publish state |
+| Method | Endpoint                          | Description          |
+| ------ | --------------------------------- | -------------------- |
+| GET    | `/videos`                         | Get all videos       |
+| POST   | `/videos/publish`                 | Publish video        |
+| GET    | `/videos/:videoId`                | Get video            |
+| PATCH  | `/videos/:videoId`                | Update video         |
+| DELETE | `/videos/:videoId`                | Delete video         |
+| PATCH  | `/videos/:videoId/toggle-publish` | Toggle publish state |
 
 ---
 
 # 💬 Comment Routes
 
-| Method | Endpoint | Description |
-|---|---|---|
-| GET | `/comments/:videoId` | Get comments |
-| POST | `/comments/:videoId` | Add comment |
-| PATCH | `/comments/:commentId` | Update comment |
+| Method | Endpoint               | Description    |
+| ------ | ---------------------- | -------------- |
+| GET    | `/comments/:videoId`   | Get comments   |
+| POST   | `/comments/:videoId`   | Add comment    |
+| PATCH  | `/comments/:commentId` | Update comment |
 | DELETE | `/comments/:commentId` | Delete comment |
 
 ---
 
 # 👍 Like Routes
 
-| Method | Endpoint | Description |
-|---|---|---|
-| POST | `/likes/toggle/video/:videoId` | Toggle video like |
-| POST | `/likes/toggle/comment/:commentId` | Toggle comment like |
-| POST | `/likes/toggle/tweet/:tweetId` | Toggle tweet like |
+| Method | Endpoint                           | Description         |
+| ------ | ---------------------------------- | ------------------- |
+| POST   | `/likes/toggle/video/:videoId`     | Toggle video like   |
+| POST   | `/likes/toggle/comment/:commentId` | Toggle comment like |
+| POST   | `/likes/toggle/tweet/:tweetId`     | Toggle tweet like   |
 
 ---
 
 # 🐦 Tweet Routes
 
-| Method | Endpoint | Description |
-|---|---|---|
-| POST | `/tweets` | Create tweet |
-| GET | `/tweets/user/:userId` | Get user tweets |
-| PATCH | `/tweets/:tweetId` | Update tweet |
-| DELETE | `/tweets/:tweetId` | Delete tweet |
+| Method | Endpoint               | Description     |
+| ------ | ---------------------- | --------------- |
+| POST   | `/tweets`              | Create tweet    |
+| GET    | `/tweets/user/:userId` | Get user tweets |
+| PATCH  | `/tweets/:tweetId`     | Update tweet    |
+| DELETE | `/tweets/:tweetId`     | Delete tweet    |
 
 ---
 
 # 📺 Subscription Routes
 
-| Method | Endpoint | Description |
-|---|---|---|
-| POST | `/subscriptions/toggle/:channelId` | Subscribe/unsubscribe |
-| GET | `/subscriptions/channel/:channelId` | Channel subscribers |
-| GET | `/subscriptions/user` | User subscriptions |
+| Method | Endpoint                            | Description           |
+| ------ | ----------------------------------- | --------------------- |
+| POST   | `/subscriptions/toggle/:channelId`  | Subscribe/unsubscribe |
+| GET    | `/subscriptions/channel/:channelId` | Channel subscribers   |
+| GET    | `/subscriptions/user`               | User subscriptions    |
 
 ---
 
 # 📁 Playlist Routes
 
-| Method | Endpoint | Description |
-|---|---|---|
-| POST | `/playlist` | Create playlist |
-| GET | `/playlist/:playlistId` | Get playlist |
-| PATCH | `/playlist/:playlistId` | Update playlist |
-| DELETE | `/playlist/:playlistId` | Delete playlist |
-| POST | `/playlist/:playlistId/add-video/:videoId` | Add video |
-| DELETE | `/playlist/:playlistId/remove-video/:videoId` | Remove video |
+| Method | Endpoint                                      | Description     |
+| ------ | --------------------------------------------- | --------------- |
+| POST   | `/playlist`                                   | Create playlist |
+| GET    | `/playlist/:playlistId`                       | Get playlist    |
+| PATCH  | `/playlist/:playlistId`                       | Update playlist |
+| DELETE | `/playlist/:playlistId`                       | Delete playlist |
+| POST   | `/playlist/:playlistId/add-video/:videoId`    | Add video       |
+| DELETE | `/playlist/:playlistId/remove-video/:videoId` | Remove video    |
 
 ---
 
 # 📊 Dashboard Routes
 
-| Method | Endpoint | Description |
-|---|---|---|
-| GET | `/dashboard/stats` | Channel statistics |
-| GET | `/dashboard/videos` | Channel videos analytics |
+| Method | Endpoint            | Description              |
+| ------ | ------------------- | ------------------------ |
+| GET    | `/dashboard/stats`  | Channel statistics       |
+| GET    | `/dashboard/videos` | Channel videos analytics |
 
 ---
 
@@ -484,14 +495,17 @@ http://localhost:8000/api/v1
 StreamVerse uses JWT-based authentication.
 
 ## Access Token
+
 - Used for protected routes
 - Short expiry duration
 
 ## Refresh Token
+
 - Used to generate new access tokens
 - Longer expiry duration
 
 Tokens can be sent via:
+
 - Cookies
 - Authorization Header
 
@@ -506,6 +520,7 @@ Authorization: Bearer <token>
 # ⚠️ Error Handling
 
 The project uses:
+
 - Custom `ApiError` class
 - `asyncHandler` wrapper
 - Standardized API responses
@@ -514,10 +529,10 @@ The project uses:
 
 ```json
 {
-  "statusCode": 200,
-  "message": "Success",
-  "data": {},
-  "success": true
+    "statusCode": 200,
+    "message": "Success",
+    "data": {},
+    "success": true
 }
 ```
 
@@ -525,11 +540,11 @@ The project uses:
 
 ```json
 {
-  "statusCode": 400,
-  "message": "Something went wrong",
-  "data": null,
-  "errors": [],
-  "success": false
+    "statusCode": 400,
+    "message": "Something went wrong",
+    "data": null,
+    "errors": [],
+    "success": false
 }
 ```
 
@@ -537,16 +552,16 @@ The project uses:
 
 # 🔥 Key Highlights
 
-✅ JWT Authentication
-✅ Refresh Token System
-✅ Cloudinary Media Uploads
-✅ MVC Architecture
-✅ Modular Codebase
-✅ RESTful APIs
-✅ Playlist & Subscription Features
-✅ Social Interaction Support
-✅ Pagination Support
-✅ Secure Password Hashing
+- JWT Authentication
+- Refresh Token System
+- Cloudinary Media Uploads
+- MVC Architecture
+- Modular Codebase
+- RESTful APIs
+- Playlist & Subscription Features
+- Social Interaction Support
+- Pagination Support
+- Secure Password Hashing
 
 ---
 
@@ -560,31 +575,6 @@ The project uses:
 - Analytics dashboard improvements
 - Content moderation
 - Social sharing features
-
----
-
-# 🤝 Contributing
-
-Contributions are welcome.
-
-```bash
-# Create feature branch
-git checkout -b feature/AmazingFeature
-
-# Commit changes
-git commit -m "Add AmazingFeature"
-
-# Push branch
-git push origin feature/AmazingFeature
-```
-
-Then open a Pull Request.
-
----
-
-# 📄 License
-
-This project is licensed under the ISC License.
 
 ---
 
